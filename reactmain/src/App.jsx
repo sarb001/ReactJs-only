@@ -3,31 +3,43 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const[maininput,setmaininput] = useState('');
+
+  const Changehandler = (finalval) => {
+     setmaininput(finalval);
+     console.log('change value -',maininput);
+  }
+
   const[todos,setTodos] = useState([
   {
-      title : "First Title",
-      desc : "My First new Desc is ..."
-  },
-  {
-      title : "Second Title",
-      desc : "My Second new Desc is ..."
-  },
-  {
-      title : "Third Title",
-      desc : "My Third new Desc is ..."
-  },
-]);
+      id :  1,
+      title : "First Title done ",
+  },]);
 
+  const Addtodohandler = () => {
+     setTodos([...todos , {
+       title : maininput
+     }])
+  }
 
   return (
     <div className='container'>
-      <h2> All Todo List - </h2>
-       {todos?.map((todo) => {
-          return (<div>
-             title is - {todo?.title}
-             Desc is - {todo?.desc}
+      <div>
+         <input type = "text" placeholder='Enter text.....'  value = {maininput} 
+           onChange={(e) => Changehandler(e.target.value)}
+         />
+      </div>
+      <div>
+         <button onClick={Addtodohandler}> Add tODO </button>
+      </div>
+      <div className = "todolist">
+       {todos?.map((todo,i) => {
+         return (
+         <div key = {i}>
+            <div>  title is - {todo?.title} </div> 
             </div> )
        })}
+      </div>
     </div>
   )
 }

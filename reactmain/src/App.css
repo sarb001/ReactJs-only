@@ -1,5 +1,8 @@
 .container{
-    padding: 3px;
+    padding: 40px;
     display: flex;
-    justify-content: center;
+}
+.todolist{
+    padding: 5px;
+    background-color: rgb(154, 154, 154);
 }
