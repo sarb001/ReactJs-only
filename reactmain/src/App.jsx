@@ -30,7 +30,7 @@ function App() {
          />
       </div>
       <div>
-         <button onClick={Addtodohandler}> Add tODO </button>
+         <button onClick={Addtodohandler}> Add tODO nOW </button>
       </div>
       <div className = "todolist">
        {todos?.map((todo,i) => {
